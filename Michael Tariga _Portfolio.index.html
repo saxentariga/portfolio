@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Michael Rosales Tariga | Virtual Assistant Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F7; --surface:#FFFFFF; --ink:#13203A; --muted:#4D5B73; --line:#D3DCE5;
+  --accent:#C8372D; --accent-ink:#FFFFFF; --ok:#1F6B4A; --ok-bg:#DDF0E6; --warn:#8A4B00; --warn-bg:#FBE9CC; --info:#25466F; --info-bg:#DCE8F5;
+  --display:"Bricolage Grotesque","Trebuchet MS",Arial,sans-serif;
+  --body:"Instrument Sans","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1626; --surface:#16223A; --ink:#EAF0F8; --muted:#A5B3C9; --line:#2A3A58;
+    --accent:#FF6B5E; --accent-ink:#0E1626; --ok:#7FD9A9; --ok-bg:#183D2D; --warn:#F5C77A; --warn-bg:#43300F; --info:#9CC4F2; --info-bg:#1B3556;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1626; --surface:#16223A; --ink:#EAF0F8; --muted:#A5B3C9; --line:#2A3A58;
+  --accent:#FF6B5E; --accent-ink:#0E1626; --ok:#7FD9A9; --ok-bg:#183D2D; --warn:#F5C77A; --warn-bg:#43300F; --info:#9CC4F2; --info-bg:#1B3556;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.2vw,2.1rem);margin-bottom:1.25rem}
+h3{font-size:1.2rem;margin-bottom:.4rem}
+p{margin:0 0 1rem;max-width:62ch}
+section{padding:3.25rem 0;border-top:1px solid var(--line)}
+
+/* hero */
+.hero{padding:3rem 0 3.5rem;border-top:0}
+.hero-grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
+@media(min-width:60rem){.hero-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center}}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:700;margin-bottom:.9rem}
+.role{font-family:var(--display);font-size:1.2rem;color:var(--accent);font-weight:500;margin-bottom:1.1rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:.4rem;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.sheet{background:var(--surface);border:2px solid var(--ink);border-radius:.5rem;overflow:hidden}
+.sheet-head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1rem;border-bottom:2px solid var(--ink);font-family:var(--display);font-weight:500;font-size:.95rem}
+.sheet-head span:last-child{color:var(--muted);font-family:var(--body);font-size:.85rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:30rem;font-size:.95rem}
+th,td{text-align:left;padding:.6rem 1rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--muted);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.tag{display:inline-block;padding:.1rem .55rem;border-radius:99px;font-size:.82rem;font-weight:600}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.info{background:var(--info-bg);color:var(--info)}
+.sheet-note{padding:.6rem 1rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin:0;max-width:none}
+
+/* grids */
+.grid{display:grid;gap:1.25rem}
+@media(min-width:44rem){.grid.two{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.5rem;padding:1.25rem 1.4rem}
+.card p{margin:0;color:var(--muted)}
+.card h3{color:var(--ink)}
+
+/* experience */
+.job{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:50rem){.job{grid-template-columns:14rem 1fr}}
+.job-meta strong{font-family:var(--display);font-size:1.25rem;display:block}
+.job-meta span{color:var(--muted)}
+.job ul{margin:0;padding-left:1.2rem;max-width:62ch}
+.job li{margin-bottom:.5rem}
+.job li::marker{color:var(--accent)}
+.note{border-left:4px solid var(--accent);padding:.6rem 1rem;background:var(--surface);color:var(--muted);margin:0 0 1.5rem;max-width:62ch}
+
+/* lists */
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:.4rem;padding:.45rem .8rem;font-weight:500}
+.two-col{display:grid;gap:2rem}
+@media(min-width:50rem){.two-col{grid-template-columns:1fr 1fr}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-top:0;margin-top:1rem;border-radius:.6rem;padding:2.5rem 1.5rem}
+.contact h2{color:var(--bg)}
+.contact p{color:var(--bg);opacity:.9}
+.contact a{font-weight:600;text-underline-offset:3px}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.2rem;margin:1.2rem 0 0}
+.contact dt{opacity:.75}
+.contact dd{margin:0}
+footer{padding:1.5rem 0 2rem;color:var(--muted);font-size:.9rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+<div class="wrap">
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <h1>Michael Rosales Tariga</h1>
+      <p class="role">Virtual Assistant, Customer Support, Operations Administration</p>
+      <p>I keep schedules, shift reports, spreadsheets and staff emails organized so teams can see what is done, what is pending, and what needs follow-up. I have worked in operations support at Easy iCare since October 2024, and I am looking for part-time remote work.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:saxentariga@gmail.com">Email me</a>
+        <a class="btn" href="#work">See my work</a>
+      </div>
+    </div>
+    <div class="sheet" role="group" aria-label="Sample shift report layout">
+      <div class="sheet-head"><span>Shift report</span><span>Sample layout</span></div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Member</th><th>Helper</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Member A</td><td>Helper 1</td><td>Mon</td><td>9:00 AM</td><td><span class="tag ok">Completed</span></td></tr>
+            <tr><td>Member B</td><td>Helper 2</td><td>Mon</td><td>1:30 PM</td><td><span class="tag warn">Incomplete</span></td></tr>
+            <tr><td>Member C</td><td>Helper 1</td><td>Tue</td><td>10:00 AM</td><td><span class="tag info">Scheduled</span></td></tr>
+            <tr><td>Member D</td><td>Helper 3</td><td>Tue</td><td>4:00 PM</td><td><span class="tag info">Scheduled</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sheet-note">Fictional data. It shows how I lay out shift information so incomplete shifts are easy to spot.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2>What I can help with</h2>
+  <div class="grid two">
+    <div class="card"><h3>Administrative assistance</h3><p>Data entry, document organization, spreadsheet formatting, information checking, and routine admin support.</p></div>
+    <div class="card"><h3>Customer support</h3><p>Clear written and spoken communication, answering inquiries, and passing on accurate information.</p></div>
+    <div class="card"><h3>Scheduling and coordination</h3><p>Rostering support, schedule monitoring, shift coordination, and organizing staff and time information.</p></div>
+    <div class="card"><h3>Reporting and documentation</h3><p>Shift reports, operational summaries, staff reminders, email preparation, and supporting documents.</p></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="job">
+    <div class="job-meta"><strong>Easy iCare</strong><span>Call Center Agent / Operations Support</span><br><span>October 2024 to 2026</span></div>
+    <ul>
+      <li>Supported rostering and shift-related administrative processes.</li>
+      <li>Prepared shift reports by organizing staff, participant, status, date, and time information.</li>
+      <li>Created and formatted spreadsheet-style tables for operational monitoring and reporting.</li>
+      <li>Drafted professional emails, staff reminders, and management reports.</li>
+      <li>Assisted with documentation for shift completion, payroll requirements, reimbursements, and compliance procedures.</li>
+      <li>Organized information clearly and followed established workplace processes.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="work">
+  <h2>Selected work capabilities</h2>
+  <p class="note">These examples describe the types of work I handled in my Easy iCare role. They contain no client or participant information, and they are not claims of measured results or independent client projects.</p>
+  <div class="grid two">
+    <div class="card"><h3>Shift and roster reporting</h3><p>Shift details arranged into clear tables with member, helper, status, date, and time, so scheduled and incomplete shifts can be reviewed and followed up quickly.</p></div>
+    <div class="card"><h3>Spreadsheet organization</h3><p>Operational information formatted into structured tables for monitoring and reporting, with consistent labels, readable layouts, and accurate transfer of the information supplied.</p></div>
+    <div class="card"><h3>Professional email preparation</h3><p>Workplace emails, staff reminders, and management updates written in a direct tone, built around the action needed, the key details, and the next step.</p></div>
+    <div class="card"><h3>Administrative documentation</h3><p>Documents organized for shift completion, payroll requirements, reimbursements, and compliance, following established workplace processes.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="two-col">
+    <div>
+      <h2>Core skills</h2>
+      <ul class="chips">
+        <li>Customer service</li><li>Professional communication</li><li>Email and correspondence</li><li>Spreadsheet formatting</li><li>Data organization</li><li>Shift reporting</li><li>Roster administration</li><li>Data entry</li><li>Documentation</li><li>Information checking</li><li>Attention to detail</li><li>Confidentiality</li><li>English, spoken and written</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Tools and systems</h2>
+      <ul class="chips">
+        <li>Microsoft 365</li><li>Dialpad</li><li>JotForm</li><li>LookOut</li><li>Brevity</li><li>MYP</li><li>QuVu</li><li>FmPilot</li>
+      </ul>
+      <h2 style="margin-top:2rem">Education</h2>
+      <p style="margin:0"><strong>BS Marine Transportation</strong>, third year<br>University of the Visayas, 2011 to 2014</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Let’s work together</h2>
+  <p>I am open to part-time, remote administrative, customer service, and operations support. Evenings are my preferred hours.</p>
+  <dl>
+    <dt>Email</dt><dd><a href="mailto:saxentariga@gmail.com">saxentariga@gmail.com</a></dd>
+    <dt>Phone</dt><dd><a href="tel:+639930348078">+63 993 034 8078</a></dd>
+    <dt>Location</dt><dd>Bantayan Island, Cebu, Philippines</dd>
+  </dl>
+</section>
+
+</div>
+</main>
+<footer><div class="wrap">Michael Rosales Tariga, Virtual Assistant Portfolio</div></footer>
+</body>
+</html>
